@@ -27,26 +27,8 @@ public class ProjectSecurityConfig {
         return http.build();
     }
 
-//    @Bean
-//    public InMemoryUserDetailsManager userDetailsManager() {
-//        UserDetails admin = User.withDefaultPasswordEncoder()
-//                .username("admin")
-//                .password("12345")
-//                .authorities("admin")
-//                .build();
-//        UserDetails user = User.withDefaultPasswordEncoder()
-//                .username("user")
-//                .password("12345")
-//                .authorities("read")
-//                .build();
-//        return new InMemoryUserDetailsManager(admin, user);
-//        UserDetails admin = User.withUsername("admin").password("12345").authorities("admin").build();
-//        UserDetails user = User.withUsername("user").password("12345").authorities("read").build();
-//        return new InMemoryUserDetailsManager(admin, user);
-//    }
-
     @Bean
-    public UserDetailsService userDetailsService(DataSource dataSource){
+    public UserDetailsService userDetailsService(DataSource dataSource) {
         return new JdbcUserDetailsManager(dataSource);
     }
 
